@@ -23,6 +23,8 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.26'
+
 }
 
 testing {
