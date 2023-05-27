@@ -2,20 +2,25 @@ package tennis.kata;
 
 import lombok.*;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
 public class Player {
     private String name;
-    private Integer ptr;
+    private int ptr;
 
-    public void incrementPtr() {
+    public Player(String name, int ptr) {
+        this.name = name;
+        this.ptr = ptr;
+    }
+
+    public void incrementScore() {
         ptr++;
     }
 
-    public void decrementPtr() {
+    public void decrementScore() {
         ptr--;
     }
 
