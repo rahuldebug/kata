@@ -25,6 +25,7 @@ class ScoreEngineSpec extends Specification {
         then:
         thrown(IllegalArgumentException)
     }
+
     def "both cannot be winner"() {
         given:
         Player p1 = new Player("p1", 5)
@@ -34,15 +35,29 @@ class ScoreEngineSpec extends Specification {
         then:
         thrown(IllegalArgumentException)
     }
-    def "should see expected value in table"(int a,int b, String c){
+
+    def "should see expected value in table"(int a, int b, String c) {
 
         expect:
-        scoreEngine.CalculateScore(a,b)==c
+        scoreEngine.CalculateScore(a, b) == c
         where:
-        a|b|c
-        0|0|"love:ALL"
-        1|1|"fifteen:ALL"
-        2|2|"thirty:ALL"
-        3|3|"deuce"
+        a | b | c
+        0 | 0 | "love:ALL"
+        1 | 1 | "fifteen:ALL"
+        2 | 2 | "thirty:ALL"
+        3 | 3 | "deuce"
+    }
+
+    def "should see expected value in table"(int a, int b, String c) {
+        // String[] score = {"love", "fifteen", "thirty", "forty", "advantage", "win"};
+        expect:
+        scoreEngine.CalculateScore(a, b) == c
+        where:
+        a | b | c
+        0 | 1 | "love:fifteen"
+        1 | 2 | "fifteen:thirty"
+        2 | 3 | "thirty:forty"
+        3 | 4 | "forty:advantage"
+        3 | 5 | "forty:win"
     }
 }
