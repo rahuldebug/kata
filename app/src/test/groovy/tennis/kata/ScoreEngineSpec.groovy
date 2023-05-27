@@ -3,12 +3,12 @@ package tennis.kata
 import spock.lang.Specification
 
 class ScoreEngineSpec extends Specification {
-    ScoreEngine scoreEngine = new ScoreEngine();
+    ScoreEngine scoreEngine = new ScoreEngine()
 
     def "should throw exception"() {
         given:
-        Player p1 = new Player("p1", -1);
-        Player p2 = new Player("p2", 7);
+        Player p1 = new Player("p1", -1)
+        Player p2 = new Player("p2", 7)
         when:
         scoreEngine.CalculateScore(p1.getPtr(), p2.getPtr())
         then:
@@ -18,8 +18,8 @@ class ScoreEngineSpec extends Specification {
 
     def "both cannot be at advantage "() {
         given:
-        Player p1 = new Player("p1", 4);
-        Player p2 = new Player("p2", 4);
+        Player p1 = new Player("p1", 4)
+        Player p2 = new Player("p2", 4)
         when:
         scoreEngine.CalculateScore(p1.getPtr(), p2.getPtr())
         then:
@@ -27,8 +27,8 @@ class ScoreEngineSpec extends Specification {
     }
     def "both cannot be winner"() {
         given:
-        Player p1 = new Player("p1", 5);
-        Player p2 = new Player("p2", 5);
+        Player p1 = new Player("p1", 5)
+        Player p2 = new Player("p2", 5)
         when:
         scoreEngine.CalculateScore(p1.getPtr(), p2.getPtr())
         then:
