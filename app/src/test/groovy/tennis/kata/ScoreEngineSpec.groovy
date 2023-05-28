@@ -49,7 +49,6 @@ class ScoreEngineSpec extends Specification {
     }
 
     def "should see expected value in table"(int a, int b, String c) {
-        // String[] score = {"love", "fifteen", "thirty", "forty", "advantage", "win"};
         expect:
         scoreEngine.CalculateScore(a, b) == c
         where:
@@ -59,5 +58,10 @@ class ScoreEngineSpec extends Specification {
         2 | 3 | "thirty:forty"
         3 | 4 | "forty:advantage"
         3 | 5 | "forty:win"
+        1 | 0 | "fifteen:love"
+        1 | 4 | "fifteen:win"
+        4 | 1 | "win:fifteen"
+        2 | 4 | "thirty:win"
+        4 | 3 | "advantage:forty"
     }
 }

@@ -10,11 +10,7 @@ public class ScoreEngine {
         }
         if (p1score == p2score) {
             result = getScoreForEqualValue(p1score);
-        }
-        if (p1score < p2score) {
-            result = getScoreForNotEqualP2(p1score, p2score);
-        }
-        if (p1score > p2score) {
+        } else {
             result = getScoreForNotEqualP1(p1score, p2score);
         }
         return result;
@@ -30,22 +26,20 @@ public class ScoreEngine {
     }
 
     private String getScoreForNotEqualP1(Integer p1score, Integer p2score) {
+        int diff = Math.abs(p2score - p1score);
         if (p1score <= 3 && p2score <= 3) {
             return score[p1score] + ":" + score[p2score];
-        } else if (p2score == 3 && p1score < 5) {
+        } else if ((p2score == 3 && p1score < 5) || (p1score == 3 && p2score < 5)) {
             return score[p1score] + ":" + score[p2score];
-        } else return "win" + ":" + score[p1score];
+        } else if (p1score == 4 && diff >= 2) {
+            return "win" + ":" + score[p2score];
+        } else if (p2score == 4 && diff >= 2) {
+            return score[p1score] + ":" + "win";
+        } else {
+            return score[p1score] + ":" + score[p2score];
+        }
+
     }
 
 
-    private String getScoreForNotEqualP2(Integer p1score, Integer p2score) {
-/*        if (p1score <=3 && p2score <=3) {
-            return score[p1score] + ":" + score[p2score];
-        } else if (p1score == 3 && p2score < 5) {
-            return score[p1score] + ":" + score[p2score];
-        } else return score[p1score] + ":" + score[p2score];
-    }*/
-
-        return null;
-    }
 }
