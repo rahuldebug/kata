@@ -39,4 +39,3 @@ When the, receiver wins a point
 Then the receiver shouId win
 
 To Run the project  ./gradlew clean build 
-to Run test suite ./gradlew test
