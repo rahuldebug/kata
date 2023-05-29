@@ -6,17 +6,18 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Builder
+
 public class Player {
     private String name;
     private int ptr;
 
-    public Player(String name, int ptr) {
+    public Player(String name) {
         this.name = name;
-        this.ptr = ptr;
+        this.ptr = 0;
     }
 
     public void incrementScore() {
+
         ptr++;
     }
 
@@ -25,6 +26,7 @@ public class Player {
     }
 
     public Integer getPtr() {
+
         return ptr;
     }
 }
